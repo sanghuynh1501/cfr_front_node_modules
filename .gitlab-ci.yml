@@ -1,0 +1,29 @@
+variables:
+  APP_SERVICE: 'cfr'
+  
+before_script:
+  - export PATH=$PATH:$HOME/.nvm/versions/node/v13.11.0/bin/
+  - export NPM_TOKEN=${NPM_TOKEN}
+  - export COMMIT_TIME=$(date +%Y%m%dT%H%M)
+
+stages:
+  - build
+
+build:
+  stage: build
+  only:
+    refs:
+      - master
+      - cicd
+      - /release-/
+      - test
+  script:
+    - node -v
+    - npm i
+    - CI="" GENERATE_SOURCEMAP=false REACT_APP_END_POINT=graphqlcfr npm run build
+    
+    - ssh -p 1210 ${USER}@${FRONT_N1} "/bin/mkdir -p /var/www/services_${CI_COMMIT_BRANCH}/${APP_SERVICE}"
+    - rsync -a -e "ssh -p 1210" build/ ${USER}@${FRONT_N1}:/var/www/services_${CI_COMMIT_BRANCH}/${APP_SERVICE} --delete
+    
+    - ssh -p 1210 ${USER}@${FRONT_N4} "/bin/mkdir -p /var/www/services_${CI_COMMIT_BRANCH}/${APP_SERVICE}"
+    - rsync -a -e "ssh -p 1210" build/ ${USER}@${FRONT_N4}:/var/www/services_${CI_COMMIT_BRANCH}/${APP_SERVICE} --delete

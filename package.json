@@ -1,0 +1,125 @@
+{
+  "name": "front",
+  "version": "1.0.4",
+  "private": true,
+  "author": {
+    "name": "Phát",
+    "email": "tienphat1501@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "Phát",
+      "email": "tienphat1501@gmail.com"
+    }
+  ],
+  "homepage": "/cfr",
+  "dependencies": {
+    "@ant-design/icons": "^4.0.5",
+    "@apollo/react-components": "^3.1.3",
+    "@apollo/react-hooks": "^3.1.3",
+    "@digihcs/lib-jitsi-meet-dist": "1.1.4",
+    "@types/react-addons-css-transition-group": "^15.0.5",
+    "antd": "^3.26.0",
+    "apollo-cache-inmemory": "^1.6.5",
+    "apollo-client": "^2.6.8",
+    "apollo-link": "^1.2.13",
+    "apollo-link-error": "^1.1.12",
+    "apollo-link-ws": "^1.0.19",
+    "apollo-upload-client": "^12.1.0",
+    "d3-ease": "^1.0.6",
+    "emoji-mart": "^2.11.2",
+    "googleapis": "^39.2.0",
+    "graphql": "^14.6.0",
+    "graphql-tag": "^2.10.3",
+    "i18next": "^19.1.0",
+    "i18next-browser-languagedetector": "^4.0.1",
+    "jsonwebtoken": "^8.5.1",
+    "konva": "^4.1.6",
+    "mobx": "^5.15.4",
+    "mobx-react": "^6.1.7",
+    "react": "^16.12.0",
+    "react-beautiful-dnd": "^13.0.0",
+    "react-big-calendar": "^0.24.0",
+    "react-canvas-draw": "^1.1.0",
+    "react-dom": "^16.12.0",
+    "react-feather": "^2.0.3",
+    "react-grid-layout": "^0.17.1",
+    "react-i18next": "^11.3.1",
+    "react-konva": "^16.12.0-0",
+    "react-notifications-component": "2.3.0",
+    "react-pdf": "^4.1.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.2.0",
+    "react-spinners": "^0.6.1",
+    "react-spring": "^8.0.27",
+    "reactour": "^1.16.1",
+    "rnnoise-wasm": "github:jitsi/rnnoise-wasm.git#db96d11f175a22ef56c7db1ba9550835b716e615",
+    "styled-components": "^4.0.0",
+    "subscriptions-transport-ws": "^0.9.16",
+    "underscore": "^1.9.2",
+    "uuid": "^7.0.2"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-spread": "^7.8.3",
+    "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
+    "@types/react-grid-layout": "^0.17.0",
+    "@types/react-router-dom": "^5.1.3",
+    "@types/underscore": "^1.9.4",
+    "autoprefixer": "^9.7.4",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-import": "^1.13.0",
+    "css-loader": "^3.4.2",
+    "customize-cra": "^0.9.1",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "husky": "^3.1.0",
+    "less": "2.7.2",
+    "less-loader": "^5.0.0",
+    "lint-staged": "^9.5.0",
+    "mini-css-extract-plugin": "0.8.0",
+    "prettier": "^1.19.1",
+    "react-app-rewired": "^2.1.5",
+    "tslint": "^5.20.1",
+    "tslint-plugin-prettier": "^2.1.0",
+    "tslint-react": "^4.2.0",
+    "typescript": "3.8.3",
+    "typescript-eslint-parser": "22.0.0",
+    "webpackbar": "^4.0.0",
+    "yarn": "^1.22.0"
+  },
+  "lint-staged": {
+    "pre-commit": [
+      "node_modules/.bin/yarn lint",
+      "git add ."
+    ]
+  },
+  "scripts": {
+    "major": "yarn version --major",
+    "minor": "yarn version --minor",
+    "patch": "yarn version --patch",
+    "preanalyze": "SOURCE_MAP=true react-app-rewired build",
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
+    "start": " SOURCE_MAP=true react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
+    "eject": "react-scripts eject",
+    "lint": "tslint -p tsconfig.json -c tslint.json --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
+}
